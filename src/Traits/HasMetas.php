@@ -254,7 +254,7 @@ trait HasMetas
      */
     private function flushMetaCache(?string $key = null): void
     {
-        $locales = collect(array_keys(config('laravellocalization.supportedLocales', [app()->getLocale() => []])))->push(null);
+        $locales = getSupportedLocales();
         $keys = $key ? [$key] : $this->metas()->pluck('key')->unique();
 
         foreach ($keys as $k) {

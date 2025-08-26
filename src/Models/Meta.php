@@ -79,22 +79,6 @@ class Meta extends Model
     }
 
     /**
-     * Get supported locales in a flexible way.
-     * 
-     * @return array
-     */
-    protected static function getSupportedLocales(): array
-    {
-        $locales = config('meta.supported_locales', []);
-
-        if (array_values($locales) === $locales) {
-            return $locales;
-        }
-
-        return array_keys($locales);
-    }
-
-    /**
      * Detect the type of a given value.
      *
      * Used to determine which field should store the value and how it should
@@ -106,7 +90,7 @@ class Meta extends Model
     public static function detectType(mixed $value): string
     {
         if (is_array($value)) {
-            $locales = static::getSupportedLocales();
+            $locales = getSupportedLocales();
             if (!array_diff(array_keys($value), $locales)) {
                 return 'string';
             }
@@ -150,7 +134,7 @@ class Meta extends Model
      */
     public function setRealValue(mixed $value, ?string $locale = null): void
     {
-        $supportedLocales = static::getSupportedLocales();
+        $supportedLocales = getSupportedLocales();
 
         if (is_array($value) && !array_diff(array_keys($value), $supportedLocales)) {
             $this->type = 'string';
