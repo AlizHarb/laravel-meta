@@ -1,0 +1,50 @@
+{
+  "name": "alizharb/laravel-meta",
+  "description": "A flexible meta system for Laravel models",
+  "keywords": [
+    "spatie",
+    "laravel-translatable",
+    "translate",
+    "eloquent",
+    "model",
+    "i8n",
+    "multilingual",
+    "metas",
+    "meta",
+    "dynamic-meta-laravel",
+    "AlizHarb"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ali Harb",
+      "email": "harbzali@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "AlizHarb\\Meta\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "AlizHarb\\Meta\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": "^8.2",
+    "illuminate/support": "^12.0",
+    "illuminate/database": "^12.0",
+    "spatie/laravel-translatable": "^7.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "AlizHarb\\Meta\\MetaServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
