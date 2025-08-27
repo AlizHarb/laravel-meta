@@ -151,7 +151,8 @@ class Meta extends Model
             'date' => $this->value_datetime = $value instanceof \DateTimeInterface ? $value : new \DateTime($value),
             'number' => $this->value_decimal = is_string($value) && str_contains($value, '.') ? (float)$value : (int)$value,
             'json' => $this->value_json = $value,
-            default => $this->setTranslation('value_translations', $locale ?? app()->getLocale(), (string)$value),
+            'string' => $this->value_string = (string)$value,
+            default => null,
         };
     }
 }

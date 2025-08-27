@@ -359,5 +359,11 @@ trait HasMetas
     protected static function bootHasMetas(): void
     {
         static::observe(MetaObserver::class);
+
+        static::saving(function (Model $model) {
+            if (method_exists($model, 'persistQueuedMeta')) {
+                $model->persistQueuedMeta();
+            }
+        });
     }
 }
